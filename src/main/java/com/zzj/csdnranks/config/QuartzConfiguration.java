@@ -27,7 +27,7 @@ public class QuartzConfiguration {
         //cron表达式
         //每天0点执行
         return TriggerBuilder.newTrigger().forJob(watcherDetail())
-                .withIdentity("testTask2")
+                .withIdentity("watcherTask")
                 .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?"))
                 .build();
     }

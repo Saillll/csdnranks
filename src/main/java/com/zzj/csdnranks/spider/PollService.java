@@ -39,7 +39,7 @@ public class PollService {
             String ranksString = ranksDl.attr("title");
             ranks = Integer.valueOf(ranksString);
 
-        }catch (IOException e){
+        }catch (Exception e){
             e.printStackTrace();
         }finally {
             numsANDranks.put("nums",nums);

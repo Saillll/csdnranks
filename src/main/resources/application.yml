@@ -14,5 +14,17 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+  mail:
+    default-encoding: utf-8
+    host: smtp.abc.cn
+    port: 25
+    username: sender@senderhost.com
+    password: yourpassword
+    protocol: smtp
+    test-connection: true
 blog:
   address: https://blog.csdn.net/diaobatian
+email:
+  from: abc@youmail.com
+  to: reciver1@reciverhost.com,reciver2@reciverhost.com
+  title: CSDN RANKS

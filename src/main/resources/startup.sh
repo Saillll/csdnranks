@@ -1,0 +1,1 @@
+nohup java -Xmx32m -Xms32m -jar csdnranks.jar > csdnranks.log &

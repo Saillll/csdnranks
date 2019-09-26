@@ -16,19 +16,19 @@ public class QuartzConfiguration {
     @Bean
     public Trigger watcherTrigger(){
         //直接设定
-//        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-//                .withIntervalInSeconds(5)
-//                //.withIntervalInHours(6) // 6个小时记录一次
-//                .repeatForever();
-//        return TriggerBuilder.newTrigger().forJob(watcherDetail())
-//                .withIdentity("watcherTask")
-//                .withSchedule(scheduleBuilder)
-//                .build();
-        //cron表达式
-        //每天0点执行
+        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
+                .withIntervalInSeconds(60)
+                //.withIntervalInHours(6) // 6个小时记录一次
+                .repeatForever();
         return TriggerBuilder.newTrigger().forJob(watcherDetail())
                 .withIdentity("watcherTask")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?"))
+                .withSchedule(scheduleBuilder)
                 .build();
+        //cron表达式
+        //每天0点执行
+//        return TriggerBuilder.newTrigger().forJob(watcherDetail())
+//                .withIdentity("watcherTask")
+//                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?"))
+//                .build();
     }
 }

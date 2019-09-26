@@ -1,5 +1,6 @@
 package com.zzj.csdnranks.spider;
 
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -22,8 +23,15 @@ public class PollService {
         int nums = 0;
         int ranks = 0;
         try{
+            System.out.println("The CSDN Address is " + blogAddress);
             Document document = Jsoup.connect(blogAddress).get();
-            System.out.println("The Blog Title is : " +document.title());
+            String title = document.title();
+            System.out.println("The Blog Title is : " + title);
+            if("".equals(title)){
+                numsANDranks.put("nums",nums);
+                numsANDranks.put("ranks",ranks);
+                return numsANDranks;
+            }
             Element asideProfile = document.getElementById("asideProfile");
             Elements fourElements = asideProfile.getElementsByClass("grade-box clearfix");
             Elements dls = fourElements.get(0).getElementsByTag("dl");

@@ -23,6 +23,10 @@ public class WatcherTask extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         Map<String,Integer> numsANDranks = pollService.poll();
+        if(0 == numsANDranks.get("nums")){
+            System.out.println("Getting NONE Data.Will Not Send EMail");
+            return;
+        }
         watcherService.insert(numsANDranks);
         emailService.send(numsANDranks);
         System.out.println("Done");

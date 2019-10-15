@@ -28,7 +28,7 @@ public class PollService {
             Elements fourElements = asideProfile.getElementsByClass("grade-box clearfix");
             Elements dls = fourElements.get(0).getElementsByTag("dl");
 
-            Element numsElement = dls.get(1);
+            Element numsElement = dls.get(0);
             Elements numsDDS = numsElement.getElementsByTag("dd");
             Element numsDl = numsDDS.get(0);
             String numsString = numsDl.attr("title");

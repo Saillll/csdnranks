@@ -17,7 +17,8 @@ spring:
   mail:
     default-encoding: utf-8
     host: smtp.abc.cn
-    port: 25
+    #阿里云封禁了25端口，此处使用465
+    port: 465
     username: sender@senderhost.com
     password: yourpassword
     protocol: smtp

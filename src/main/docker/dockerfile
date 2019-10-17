@@ -1,0 +1,5 @@
+FROM java:8
+VOLUME /tmp
+ADD csdnranks-1.0.jar csdnranks.jar
+EXPOSE 18200
+ENTRYPOINT ["java","-jar","/csdnranks.jar"]
